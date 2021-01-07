@@ -9,6 +9,7 @@ class LoginController extends Controller
 {
     public function github()
     {
+        return Socialite::driver('github')->redirect();
     }
     public function githubRedirect()
     {
