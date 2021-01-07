@@ -50,7 +50,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <div style="margin-right: 20px;"
-                    class=""><a href="">LogIn with GitHub</a></div>
+                    class=""><a href="/login/github">LogIn with GitHub</a></div>
                 <x-jet-button class="ml-4">
                     @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900"
