@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,8 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('login/github', [LoginController::class, 'github'])->name('login.github');
+
+    Route::get('login/github/redirect', [LoginController::class, 'githubRedirect'])->name('login.github.redirect');
+});
