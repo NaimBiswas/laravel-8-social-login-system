@@ -18,11 +18,11 @@ class LoginController extends Controller
     public function githubRedirect()
     {
         $user = Socialite::driver('github')->user();
-        $users = User::firstOrCreate([
-            'email' => $user->email
 
+        $user = User::firstOrCreate([
+            'email' => $user->email,
         ], [
-            'name' => $user->name,
+            'name' => $user->nickname,
             'password' => Hash::make(Str::random(15)),
         ]);
         Auth::login($user, true);
